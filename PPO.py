@@ -50,6 +50,7 @@ class Agent(nn.Module):
 
     def get_value(self,x):
         return self.critic(x)
+
     def get_action_and_value(self,x,action=None):
         logits=self.actor(x)
         probs=Categorical(logits=logits)
@@ -109,7 +110,10 @@ def parse_args():
     parser.add_argument('--vs-coef',type=float,default=0.5,
         help='value loss coef')   
     parser.add_argument('--max-grad-norm',type=float,default=0.5,
-        help='max norm for gradient clipping')   
+        help='max norm for gradient clipping')
+    
+    parser.add_argument('--target-kl',type=float,default=None,
+        help='KL threshold')   
 
     args=parser.parse_args()
     args.batch_size=int(args.num_envs*args.num_steps)
@@ -132,7 +136,7 @@ if __name__=="__main__":
 
     device=torch.device("cuda" if torch.cuda.is_available() and args.cuda else "cpu") 
 
-
+    print("device    ",device)
 
     envs=gym.vector.SyncVectorEnv(
         [make_env(args.gym_id,args.seed+i,i,args.capture_video,run_name)
@@ -142,7 +146,6 @@ if __name__=="__main__":
 
 
     agent=Agent(envs).to(device)
-    print(agent)
 
     optimizer=optim.Adam(agent.parameters(), lr=args.learning_rate,eps=1e-5)
 
@@ -162,6 +165,7 @@ if __name__=="__main__":
     num_updates=args.total_timesteps//args.batch_size
 
     for update in range(1,num_updates+1):
+        print("update   ",update)
         #Annealing le
         if args.anneal_lr:
             frac=1.0-(update-1.0)/num_updates
@@ -175,76 +179,82 @@ if __name__=="__main__":
             dones[step]=next_done
 
             with torch.no_grad():
-                action,logprobs,_,value=agent.get_action_and_value(next,obs)
+                action,logprob,_,value=agent.get_action_and_value(next_obs)
                 values[step]=value.flatten()
-            action[step]=action
-            logprobs[step]=logprobs
+            actions[step]=action
+            logprobs[step]=logprob
 
 
             next_obs,reward,done,info=envs.step(action.cpu().numpy())
             rewards[step]=torch.tensor(reward).to(device).view(-1)
             next_obs,next_done=torch.Tensor(next_obs).to(device),torch.Tensor(done).to(device)
-            
+            """
             for item in info:
                 if "episode" in item.keys():
                     print(f"global_step={global_step}, episodic_return={item['episode']['r']}")
                     writer.add_scalar("charts/episodic_return", item["episode"]["r"], global_step)
                     writer.add_scalar("charts/episodic_length", item["episode"]["l"], global_step)
-                    break
-            with torch.no_grad():
-                next_value = agent.get_value(next_obs).reshape(1, -1)
-                if args.gae:
-                    advantages = torch.zeros_like(rewards).to(device)
-                    lastgaelam = 0
-                    for t in reversed(range(args.num_steps)):
-                        if t == args.num_steps - 1:
-                            nextnonterminal = 1.0 - next_done
-                            nextvalues = next_value
-                        else:
-                            nextnonterminal = 1.0 - dones[t + 1]
-                            nextvalues = values[t + 1]
-                        delta = rewards[t] + args.gamma * nextvalues * nextnonterminal - values[t]
-                        advantages[t] = lastgaelam = delta + args.gamma * args.gae_lambda * nextnonterminal * lastgaelam
-                    returns = advantages + values
-                else:
-                    returns = torch.zeros_like(rewards).to(device)
-                    for t in reversed(range(args.num_steps)):
-                        if t == args.num_steps - 1:
-                            nextnonterminal = 1.0 - next_done
-                            next_return = next_value
-                        else:
-                            nextnonterminal = 1.0 - dones[t + 1]
-                            next_return = returns[t + 1]
-                        returns[t] = rewards[t] + args.gamma * nextnonterminal * next_return
-                    advantages = returns - values
-                    # flatten the batch
-            b_obs = obs.reshape((-1,) + envs.single_observation_space.shape)
-            b_logprobs = logprobs.reshape(-1)
-            b_actions = actions.reshape((-1,) + envs.single_action_space.shape)
-            b_advantages = advantages.reshape(-1)
-            b_returns = returns.reshape(-1)
-            b_values = values.reshape(-1)
+                    break"""
+        with torch.no_grad():
+            next_value = agent.get_value(next_obs).reshape(1, -1)
+            if args.gae:
+                advantages = torch.zeros_like(rewards).to(device)
+                lastgaelam = 0
+                for t in reversed(range(args.num_steps)):
+                    if t == args.num_steps - 1:
+                        nextnonterminal = 1.0 - next_done
+                        nextvalues = next_value
+                    else:
+                        nextnonterminal = 1.0 - dones[t + 1]
+                        nextvalues = values[t + 1]
+                    delta = rewards[t] + args.gamma * nextvalues * nextnonterminal - values[t]
+                    advantages[t] = lastgaelam = delta + args.gamma * args.gae_lambda * nextnonterminal * lastgaelam
+                returns = advantages + values
+            else:
+                returns = torch.zeros_like(rewards).to(device)
+                for t in reversed(range(args.num_steps)):
+                    if t == args.num_steps - 1:
+                        nextnonterminal = 1.0 - next_done
+                        next_return = next_value
+                    else:
+                        nextnonterminal = 1.0 - dones[t + 1]
+                        next_return = returns[t + 1]
+                    returns[t] = rewards[t] + args.gamma * nextnonterminal * next_return
+                advantages = returns - values
+                # flatten the batch
+        b_obs = obs.reshape((-1,) + envs.single_observation_space.shape)
+        b_logprobs = logprobs.reshape(-1)
+        b_actions = actions.reshape((-1,) + envs.single_action_space.shape)
+        b_advantages = advantages.reshape(-1)
+        b_returns = returns.reshape(-1)
+        b_values = values.reshape(-1)
 
 
-            b_inds=np.arange(args.batch_size)
-            for epoch in range(args.update_epochs):
-                np.random.shuffle(b_inds)
-                for start in range(0, args.batch_size, args.minibatch_size):
-                    end = start + args.minibatch_size
-                    mb_inds = b_inds[start:end]
+        b_inds=np.arange(args.batch_size)
+        clipfracs=[]
+        for epoch in range(args.update_epoches):
+            np.random.shuffle(b_inds)
+            for start in range(0, args.batch_size, args.minibatch_size):
+                end = start + args.minibatch_size
+                mb_inds = b_inds[start:end]
 
 
-                    _, newlogprob,entropy,new_value=agent.get_action_and_value(
-                        b_obs[mb_inds],b_actions.long()[mb_inds]
-                    )
-                    logratio=newlogprob-b_logprobs[mb_inds]
-                    ration=logratio.exp()
+                _, newlogprob,entropy,new_value=agent.get_action_and_value(
+                    b_obs[mb_inds],b_actions.long()[mb_inds]
+                )
+                logratio=newlogprob-b_logprobs[mb_inds]
+                ration=logratio.exp()
+
+                with torch.no_grad():
+                    old_approx_kl = (-logratio).mean()
+                    approx_kl = ((ration - 1) - logratio).mean()
+                    clipfracs += [((ration - 1.0).abs() > args.clip_coef).float().mean().item()]
 
                 mb_advantages=b_advantages[mb_inds]
                 if args.norm_adv:
                     mb_advantages=(mb_advantages-mb_advantages.mean())/(mb_advantages.std()+1e-8)
-                
-                
+            
+            
 
                 pg_loss1=-mb_advantages*ration
                 pg_loss2=-mb_advantages*torch.clamp(ration,1-args.clip_coef,1+args.clip_coef)
@@ -270,6 +280,12 @@ if __name__=="__main__":
                 loss.backward()
                 nn.utils.clip_grad_norm_(agent.parameters(), args.max_grad_norm)
                 optimizer.step()
+            """if args.target_kl is not None:
+                if approx_kl>args.target_kl:
+                    break"""
+        y_pred,y_true=b_values.cpu().numpy(),b_returns.cpu().numpy()
+        var_y=np.var(y_true)
+        explained_var=np.nan if var_y==0 else 1-np.var(y_true-y_pred)/var_y
 
 
-    
+    envs.close()
