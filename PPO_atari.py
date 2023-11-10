@@ -9,23 +9,40 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.distributions.categorical import Categorical
-import gymnasium as gym
-import wandb
+import gym
+
+from stable_baselines3.common.atari_wrappers import(
+    NoopResetEnv,
+    MaxAndSkipEnv,
+    EpisodicLifeEnv,
+    FireResetEnv,
+    ClipRewardEnv
+)
 
 def make_env(gym_id, seed, idx, capture_video, run_name):
     def thunk():
-        env = gym.make(gym_id,render_mode='rgb_array')
+        env = gym.make(gym_id)
         env = gym.wrappers.RecordEpisodeStatistics(env)
         if capture_video:
             if idx == 0:
                 env = gym.wrappers.RecordVideo(env, f"videos/{run_name}")
-        #env.seed(seed)
-        
+        env=NoopResetEnv(env,noop_max=30)
+        env=MaxAndSkipEnv(env,skip=4)
+        env=EpisodicLifeEnv(env)
+        if "FIRE" in env.unwrapped.get_action_meanings():
+            env=FireResetEnv(env)
+        env=ClipRewardEnv(env)
+        env=gym.wrappers.ResizeObservation(env,(84,84))
+        env=gym.wrappers.GrayScaleObservation(env)
+        env=gym.wrappers.FrameStack(env,4)
+        env.seed(seed)
         env.action_space.seed(seed)
         env.observation_space.seed(seed)
         return env
 
     return thunk
+
+
 
 def layer_init(layer,std=np.sqrt(2),bias_const=0.0):
     torch.nn.init.orthogonal_(layer.weight,std)
@@ -35,30 +52,31 @@ def layer_init(layer,std=np.sqrt(2),bias_const=0.0):
 class Agent(nn.Module):
     def __init__(self,envs):
         super(Agent,self).__init__()
-        self.critic=nn.Sequential(
-            layer_init(nn.Linear(np.array(envs.single_observation_space.shape).prod(),64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64,64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64,1),std=1.),
+        self.network=nn.Sequential(
+            layer_init(nn.Conv2d(4,32,8,stride=4)),
+            nn.ReLU(),
+            layer_init(nn.Conv2d(32,64,4,stride=2)),
+            nn.ReLU(),
+            layer_init(nn.Conv2d(64,64,3,stride=1)),
+            nn.ReLU(),
+            nn.Flatten(),
+            layer_init(nn.Linear(64*7*7,512)),
+            nn.ReLU(),
+            
         )
-        self.actor=nn.Sequential(
-            layer_init(nn.Linear(np.array(envs.single_observation_space.shape).prod(),64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64,64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64,envs.single_action_space.n),std=0.01),
-        )
+        self.actor=layer_init(nn.Linear(512,envs.single_action_space.n),std=0.01)
+        self.critic=layer_init(nn.Linear(512,1),std=1)
 
     def get_value(self,x):
-        return self.critic(x)
+        return self.critic(self.network(x/255))
 
     def get_action_and_value(self,x,action=None):
-        logits=self.actor(x)
+        hidden=self.network(x/255)
+        logits=self.actor(hidden)
         probs=Categorical(logits=logits)
         if action is None:
             action=probs.sample()
-        return action,probs.log_prob(action),probs.entropy(),self.critic(x)
+        return action,probs.log_prob(action),probs.entropy(),self.critic(hidden)
 
 
 
@@ -67,11 +85,11 @@ def parse_args():
     parser=argparse.ArgumentParser()
     parser.add_argument('--exp-name',type=str,default=os.path.basename(__file__).rstrip(",py"),
         help='the name of this experemnt ')
-    parser.add_argument('--gym-id',type=str,default="CartPole-v1",
+    parser.add_argument('--gym-id',type=str,default="BreakoutNoFrameskip-v4",
         help='the id of the gym invironment ')
     parser.add_argument('--learning-rate',type=float,default=2.5e-4,
         help='the learning rate of the optimizer ')
-    parser.add_argument('--total-timesteps',type=int,default=25000,
+    parser.add_argument('--total-timesteps',type=int,default=10000000,
         help='total tiesteps of the experiment')
     parser.add_argument('--seed',type=int,default=1,
         help='the seed of the experiment ')
@@ -84,15 +102,9 @@ def parse_args():
     parser.add_argument('--anneal-lr',type=lambda x:bool(strtobool(x)),default=True,
         help='change lr so it gets to zero when doing the last update')
     
-    parser.add_argument("--track", type=lambda x: bool(strtobool(x)), default=False, nargs="?", const=True,
-        help="if toggled, this experiment will be tracked with Weights and Biases")
-    parser.add_argument("--wandb-project-name", type=str, default="ppo-implementation-details",
-        help="the wandb's project name")
-    parser.add_argument("--wandb-entity", type=str, default=None,
-        help="the entity (team) of wandb's project")
     
 
-    parser.add_argument('--num-envs',type=int,default=4,
+    parser.add_argument('--num-envs',type=int,default=8,
         help='numbee of parallel game envirnments')
     parser.add_argument('--num-steps',type=int,default=128,
         help='number of steps in each environment per policy rollout')
@@ -113,7 +125,7 @@ def parse_args():
         help='clipping coef') 
     parser.add_argument('--clip-vloss',type=lambda x:bool(strtobool(x)),default=True,
         help='if TRue clip loss')    
-    parser.add_argument('--ent-coef',type=float,default=0.01,
+    parser.add_argument('--ent-coef',type=float,default=0.1,
         help='entropy coef')   
     parser.add_argument('--vs-coef',type=float,default=0.5,
         help='value loss coef')   
@@ -131,18 +143,6 @@ def parse_args():
 if __name__=="__main__":
     args=parse_args()
     run_name=f"{args.gym_id}__{args.exp_name}__{args.seed}__{int(time.time())}"
-
-
-
-    wandb.init(
-        project=args.wandb_project_name,
-        entity=args.wandb_entity,
-        sync_tensorboard=True,
-        config=vars(args),
-        name=run_name,
-        monitor_gym=True,
-        save_code=True,
-    )
     writer=SummaryWriter(f"runs/{run_name}")
     writer.add_text(
         "hyperparameters",
@@ -180,8 +180,7 @@ if __name__=="__main__":
     
     global_step=0
     start_time=time.time()
-    print("space",envs.observation_space)
-    next_obs=torch.Tensor(envs.reset()[0]).to(device)
+    next_obs=torch.Tensor(envs.reset()).to(device)
     next_done= torch.zeros(args.num_envs).to(device)
     num_updates=args.total_timesteps//args.batch_size
 
@@ -206,7 +205,7 @@ if __name__=="__main__":
             logprobs[step]=logprob
 
 
-            next_obs,reward,done,_,_=envs.step(action.cpu().numpy())
+            next_obs,reward,done,info=envs.step(action.cpu().numpy())
             rewards[step]=torch.tensor(reward).to(device).view(-1)
             next_obs,next_done=torch.Tensor(next_obs).to(device),torch.Tensor(done).to(device)
             """
@@ -308,16 +307,5 @@ if __name__=="__main__":
         var_y=np.var(y_true)
         explained_var=np.nan if var_y==0 else 1-np.var(y_true-y_pred)/var_y
 
-        writer.add_scalar("charts/learning_rate", optimizer.param_groups[0]["lr"], global_step)
-        writer.add_scalar("losses/value_loss", v_loss.item(), global_step)
-        writer.add_scalar("losses/policy_loss", pg_loss.item(), global_step)
-        writer.add_scalar("losses/entropy", entropy_loss.item(), global_step)
-        writer.add_scalar("losses/old_approx_kl", old_approx_kl.item(), global_step)
-        writer.add_scalar("losses/approx_kl", approx_kl.item(), global_step)
-        writer.add_scalar("losses/clipfrac", np.mean(clipfracs), global_step)
-        writer.add_scalar("losses/explained_variance", explained_var, global_step)
-        print("SPS:", int(global_step / (time.time() - start_time)))
-        writer.add_scalar("charts/SPS", int(global_step / (time.time() - start_time)), global_step)
 
     envs.close()
-    writer.close()

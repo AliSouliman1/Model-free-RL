@@ -1,0 +1,128 @@
+device     cuda
+space Box([[-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]], [[4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]], (4, 4), float32)
+update    1
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-0.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-0.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-0.mp4
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-1.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-1.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-1.mp4
+SPS: 299
+update    2
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-8.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-8.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-8.mp4
+SPS: 489
+update    3
+SPS: 658
+update    4
+SPS: 790
+update    5
+SPS: 900
+update    6
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-27.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-27.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-27.mp4
+SPS: 943
+update    7
+SPS: 1021
+update    8
+SPS: 1085
+update    9
+SPS: 1146
+update    10
+SPS: 1201
+update    11
+SPS: 1250
+update    12
+SPS: 1291
+update    13
+SPS: 1330
+update    14
+SPS: 1364
+update    15
+SPS: 1396
+update    16
+SPS: 1427
+update    17
+SPS: 1455
+update    18
+SPS: 1482
+update    19
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-64.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-64.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-64.mp4
+SPS: 1409
+update    20
+SPS: 1431
+update    21
+SPS: 1449
+update    22
+SPS: 1471
+update    23
+SPS: 1490
+update    24
+SPS: 1509
+update    25
+SPS: 1526
+update    26
+SPS: 1542
+update    27
+SPS: 1556
+update    28
+SPS: 1570
+update    29
+SPS: 1582
+update    30
+SPS: 1594
+update    31
+SPS: 1600
+update    32
+SPS: 1612
+update    33
+SPS: 1621
+update    34
+SPS: 1632
+update    35
+SPS: 1641
+update    36
+SPS: 1650
+update    37
+SPS: 1658
+update    38
+SPS: 1667
+update    39
+SPS: 1674
+update    40
+SPS: 1682
+update    41
+SPS: 1690
+update    42
+SPS: 1698
+update    43
+SPS: 1705
+update    44
+SPS: 1712
+update    45
+SPS: 1719
+update    46
+SPS: 1724
+update    47
+SPS: 1729
+update    48
+SPS: 1727
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-125.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-125.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629920/rl-video-episode-125.mp4

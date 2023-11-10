@@ -1,0 +1,124 @@
+device     cuda
+space Box([[-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]
+ [-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]], [[4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]
+ [4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]], (4, 4), float32)
+update    1
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-0.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-0.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-0.mp4
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-1.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-1.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-1.mp4
+SPS: 250
+update    2
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-8.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-8.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-8.mp4
+SPS: 406
+update    3
+SPS: 545
+update    4
+SPS: 659
+update    5
+SPS: 754
+update    6
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-27.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-27.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-27.mp4
+SPS: 811
+update    7
+SPS: 877
+update    8
+SPS: 939
+update    9
+SPS: 989
+update    10
+SPS: 1035
+update    11
+SPS: 1077
+update    12
+SPS: 1113
+update    13
+SPS: 1146
+update    14
+SPS: 1178
+update    15
+SPS: 1206
+update    16
+SPS: 1229
+update    17
+SPS: 1252
+update    18
+SPS: 1271
+update    19
+SPS: 1289
+update    20
+SPS: 1301
+update    21
+Moviepy - Building video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-64.mp4.
+Moviepy - Writing video /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-64.mp4
+Moviepy - Done !
+Moviepy - video ready /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/videos/CartPole-v1__PPO.__1__1699629469/rl-video-episode-64.mp4
+SPS: 1249
+update    22
+SPS: 1269
+update    23
+SPS: 1282
+update    24
+SPS: 1296
+update    25
+SPS: 1302
+update    26
+SPS: 1315
+update    27
+SPS: 1328
+update    28
+SPS: 1340
+update    29
+SPS: 1351
+update    30
+SPS: 1362
+update    31
+SPS: 1373
+update    32
+SPS: 1383
+update    33
+SPS: 1393
+update    34
+SPS: 1400
+update    35
+SPS: 1409
+update    36
+SPS: 1417
+update    37
+SPS: 1425
+update    38
+SPS: 1432
+update    39
+SPS: 1440
+update    40
+SPS: 1446
+update    41
+SPS: 1453
+update    42
+SPS: 1459
+update    43
+SPS: 1465
+update    44
+SPS: 1471
+update    45
+SPS: 1476
+update    46
+SPS: 1479
+update    47
+SPS: 1475
+update    48
+SPS: 1480

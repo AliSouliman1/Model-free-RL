@@ -1,0 +1,110 @@
+{
+    "os": "Linux-6.2.0-36-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2023-11-10T15:10:06.852708",
+    "startedAt": "2023-11-10T15:10:06.077720",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--track"
+    ],
+    "state": "running",
+    "program": "/mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/PPO.py",
+    "codePathLocal": "PPO.py",
+    "codePath": "PPO.py",
+    "git": {
+        "remote": "https://github.com/AliSouliman1/Model-free-RL.git",
+        "commit": "af68f236102efb027fac1af5e3d6be38e84ffc6c"
+    },
+    "email": "alisulyman2@gmail.com",
+    "root": "/mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL",
+    "host": "Ali",
+    "username": "ali",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3930.1386666666663,
+        "min": 800.0,
+        "max": 4100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3066.179,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3361.669,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3171.747,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3026.036,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3236.632,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3081.58,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3536.725,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3204.347,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3465.715,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3588.431,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3389.807,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 3188.056,
+            "min": 800.0,
+            "max": 4100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 196.80316543579102,
+            "used": 65.10074996948242
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1050 Ti",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.592765808105469
+    }
+}

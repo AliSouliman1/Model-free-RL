@@ -1,0 +1,340 @@
+2023-11-10 18:10:06,087 INFO    StreamThr :172518 [internal.py:wandb_internal():86] W&B internal server running at pid: 172518, started at: 2023-11-10 18:10:06.086380
+2023-11-10 18:10:06,089 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status
+2023-11-10 18:10:06,093 INFO    WriterThread:172518 [datastore.py:open_for_write():85] open: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/run-21kwmtk8.wandb
+2023-11-10 18:10:06,093 DEBUG   SenderThread:172518 [sender.py:send():380] send: header
+2023-11-10 18:10:06,107 DEBUG   SenderThread:172518 [sender.py:send():380] send: run
+2023-11-10 18:10:06,672 INFO    SenderThread:172518 [dir_watcher.py:__init__():211] watching files in: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files
+2023-11-10 18:10:06,672 INFO    SenderThread:172518 [sender.py:_start_run_threads():1124] run started: 21kwmtk8 with start time 1699629006.087524
+2023-11-10 18:10:06,678 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: check_version
+2023-11-10 18:10:06,678 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: check_version
+2023-11-10 18:10:06,821 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: run_start
+2023-11-10 18:10:06,839 DEBUG   HandlerThread:172518 [system_info.py:__init__():32] System info init
+2023-11-10 18:10:06,839 DEBUG   HandlerThread:172518 [system_info.py:__init__():47] System info init done
+2023-11-10 18:10:06,840 INFO    HandlerThread:172518 [system_monitor.py:start():194] Starting system monitor
+2023-11-10 18:10:06,840 INFO    SystemMonitor:172518 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-10 18:10:06,840 INFO    HandlerThread:172518 [system_monitor.py:probe():214] Collecting system info
+2023-11-10 18:10:06,841 INFO    SystemMonitor:172518 [interfaces.py:start():190] Started cpu monitoring
+2023-11-10 18:10:06,841 INFO    SystemMonitor:172518 [interfaces.py:start():190] Started disk monitoring
+2023-11-10 18:10:06,842 INFO    SystemMonitor:172518 [interfaces.py:start():190] Started gpu monitoring
+2023-11-10 18:10:06,843 INFO    SystemMonitor:172518 [interfaces.py:start():190] Started memory monitoring
+2023-11-10 18:10:06,843 INFO    SystemMonitor:172518 [interfaces.py:start():190] Started network monitoring
+2023-11-10 18:10:06,851 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:06,851 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:06,852 DEBUG   HandlerThread:172518 [system_info.py:probe():196] Probing system
+2023-11-10 18:10:06,854 DEBUG   HandlerThread:172518 [system_info.py:_probe_git():181] Probing git
+2023-11-10 18:10:06,859 DEBUG   HandlerThread:172518 [system_info.py:_probe_git():189] Probing git done
+2023-11-10 18:10:06,859 DEBUG   HandlerThread:172518 [system_info.py:probe():244] Probing system done
+2023-11-10 18:10:06,859 DEBUG   HandlerThread:172518 [system_monitor.py:probe():223] {'os': 'Linux-6.2.0-36-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2023-11-10T15:10:06.852708', 'startedAt': '2023-11-10T15:10:06.077720', 'docker': None, 'cuda': None, 'args': ('--track',), 'state': 'running', 'program': '/mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/PPO.py', 'codePathLocal': 'PPO.py', 'codePath': 'PPO.py', 'git': {'remote': 'https://github.com/AliSouliman1/Model-free-RL.git', 'commit': 'af68f236102efb027fac1af5e3d6be38e84ffc6c'}, 'email': 'alisulyman2@gmail.com', 'root': '/mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL', 'host': 'Ali', 'username': 'ali', 'executable': '/usr/bin/python3', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3930.1386666666663, 'min': 800.0, 'max': 4100.0}, 'cpu_freq_per_core': [{'current': 3066.179, 'min': 800.0, 'max': 4100.0}, {'current': 3361.669, 'min': 800.0, 'max': 4100.0}, {'current': 3171.747, 'min': 800.0, 'max': 4100.0}, {'current': 3026.036, 'min': 800.0, 'max': 4100.0}, {'current': 3236.632, 'min': 800.0, 'max': 4100.0}, {'current': 3081.58, 'min': 800.0, 'max': 4100.0}, {'current': 3536.725, 'min': 800.0, 'max': 4100.0}, {'current': 3204.347, 'min': 800.0, 'max': 4100.0}, {'current': 3465.715, 'min': 800.0, 'max': 4100.0}, {'current': 3588.431, 'min': 800.0, 'max': 4100.0}, {'current': 3389.807, 'min': 800.0, 'max': 4100.0}, {'current': 3188.056, 'min': 800.0, 'max': 4100.0}], 'disk': {'/': {'total': 196.80316543579102, 'used': 65.10074996948242}}, 'gpu': 'NVIDIA GeForce GTX 1050 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050 Ti', 'memory_total': 4294967296}], 'memory': {'total': 7.592765808105469}}
+2023-11-10 18:10:06,859 INFO    HandlerThread:172518 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-10 18:10:06,859 INFO    HandlerThread:172518 [system_monitor.py:probe():227] Publishing system info
+2023-11-10 18:10:06,859 DEBUG   HandlerThread:172518 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-10 18:10:06,860 DEBUG   HandlerThread:172518 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-10 18:10:06,860 DEBUG   HandlerThread:172518 [system_info.py:_save_code():90] Saving code
+2023-11-10 18:10:06,862 DEBUG   HandlerThread:172518 [system_info.py:_save_code():111] Saving code done
+2023-11-10 18:10:06,862 DEBUG   HandlerThread:172518 [system_info.py:_save_patches():128] Saving git patches
+2023-11-10 18:10:06,909 DEBUG   HandlerThread:172518 [system_info.py:_save_patches():170] Saving git patches done
+2023-11-10 18:10:06,909 INFO    HandlerThread:172518 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-10 18:10:06,912 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:06,912 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-11-10 18:10:06,913 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file code/PPO.py with policy now
+2023-11-10 18:10:06,914 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file diff.patch with policy now
+2023-11-10 18:10:06,920 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-10 18:10:06,921 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-10 18:10:06,921 INFO    HandlerThread:172518 [handler.py:handle_tbrecord():764] handling tbrecord: tbrecord {
+  log_dir: "runs/CartPole-v1__PPO.__1__1699629004"
+  save: true
+}
+control {
+  relay_id: "f3f707e47f9f43abb5652fcbe33ef087"
+}
+_info {
+  stream_id: "21kwmtk8"
+}
+
+2023-11-10 18:10:06,921 DEBUG   HandlerThread:172518 [config_util.py:dict_from_config_file():101] no default config file found in config-defaults.yaml
+2023-11-10 18:10:06,922 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: stop_status
+2023-11-10 18:10:07,584 DEBUG   SenderThread:172518 [sender.py:send():380] send: telemetry
+2023-11-10 18:10:07,584 DEBUG   SenderThread:172518 [sender.py:send():380] send: tbrecord
+2023-11-10 18:10:07,585 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:07,585 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file events.out.tfevents.1699629006.Ali.172499.0 with policy live
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-metadata.json
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/code/PPO.py
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/events.out.tfevents.1699629006.Ali.172499.0
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/diff.patch
+2023-11-10 18:10:07,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/requirements.txt
+2023-11-10 18:10:07,675 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/code
+2023-11-10 18:10:07,713 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/hg6qn56p-wandb-metadata.json
+2023-11-10 18:10:08,062 INFO    wandb-upload_1:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/85qq7rtn-code/PPO.py
+2023-11-10 18:10:08,182 INFO    wandb-upload_2:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/lfomrse1-diff.patch
+2023-11-10 18:10:08,325 INFO    wandb-upload_3:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/pbeeaeey-events.out.tfevents.1699629006.Ali.172499.0
+2023-11-10 18:10:08,852 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:08,853 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:09,168 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:09,168 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4 with policy now
+2023-11-10 18:10:09,168 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:09,169 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:09,169 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:09,170 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:09,357 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:09,358 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4 with policy now
+2023-11-10 18:10:09,358 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:09,359 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:09,359 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:09,359 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:09,604 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/4g9rdi0t-media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4
+2023-11-10 18:10:09,673 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:09,673 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4
+2023-11-10 18:10:09,673 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4
+2023-11-10 18:10:09,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:09,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos
+2023-11-10 18:10:09,674 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media
+2023-11-10 18:10:09,848 INFO    wandb-upload_2:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/p6m16co0-media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4
+2023-11-10 18:10:10,281 INFO    wandb-upload_1:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/n0gvr6fa-media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4
+2023-11-10 18:10:10,495 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:10,496 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:10,517 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_2_018c22237404ba8f8667.mp4 with policy now
+2023-11-10 18:10:10,518 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:10,518 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:10,519 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:10,542 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/4nh1wfc9-media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4
+2023-11-10 18:10:10,676 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:10,677 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_2_018c22237404ba8f8667.mp4
+2023-11-10 18:10:10,677 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos
+2023-11-10 18:10:10,854 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:10,854 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:11,033 INFO    wandb-upload_2:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/eb7wyhrz-media/videos/videos_2_018c22237404ba8f8667.mp4
+2023-11-10 18:10:11,274 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:11,672 INFO    wandb-upload_1:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/2alqoyel-media/videos/videos_2_018c22237404ba8f8667.mp4
+2023-11-10 18:10:11,676 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:11,921 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:11,921 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_3_be3ce92215deaa3fed01.mp4 with policy now
+2023-11-10 18:10:11,921 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:11,922 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:11,922 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:11,923 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:12,345 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/ulo699x7-media/videos/videos_3_be3ce92215deaa3fed01.mp4
+2023-11-10 18:10:12,677 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:12,677 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_3_be3ce92215deaa3fed01.mp4
+2023-11-10 18:10:12,677 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos
+2023-11-10 18:10:12,856 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:12,856 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:13,267 INFO    wandb-upload_3:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/aj9pyexc-media/videos/videos_3_be3ce92215deaa3fed01.mp4
+2023-11-10 18:10:13,679 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:14,858 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:14,858 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:15,682 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:16,391 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:16,859 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:16,859 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:17,683 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:18,663 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:18,663 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_4_2bc85dc4169fd35bb178.mp4 with policy now
+2023-11-10 18:10:18,664 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:18,666 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:18,666 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:18,667 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:18,685 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:18,686 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_4_2bc85dc4169fd35bb178.mp4
+2023-11-10 18:10:18,686 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos
+2023-11-10 18:10:18,860 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:18,861 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:19,155 INFO    wandb-upload_2:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/pp8ew81h-media/videos/videos_4_2bc85dc4169fd35bb178.mp4
+2023-11-10 18:10:19,685 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:19,879 INFO    wandb-upload_1:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/u7fnt6fn-media/videos/videos_4_2bc85dc4169fd35bb178.mp4
+2023-11-10 18:10:20,862 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:20,862 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:21,455 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:21,687 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:21,920 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-10 18:10:21,921 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-10 18:10:21,921 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: stop_status
+2023-11-10 18:10:22,863 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:22,863 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:23,688 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:24,864 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:24,865 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:25,689 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:26,579 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:26,867 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:26,868 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:27,694 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:28,868 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:28,869 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:29,698 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:30,876 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:30,878 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:31,708 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:31,833 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:32,881 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:32,881 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:33,710 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:34,485 DEBUG   SenderThread:172518 [sender.py:send():380] send: files
+2023-11-10 18:10:34,486 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-10 18:10:34,489 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file media/videos/videos_5_67ce629dc20f74cf1f0a.mp4 with policy now
+2023-11-10 18:10:34,494 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:34,494 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:34,497 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:34,712 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:34,712 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:34,713 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_created():271] file/dir created: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_5_67ce629dc20f74cf1f0a.mp4
+2023-11-10 18:10:34,713 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos
+2023-11-10 18:10:34,882 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:34,882 ERROR   gpu       :172518 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-11-10 18:10:34,900 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/kjr240ca-media/videos/videos_5_67ce629dc20f74cf1f0a.mp4
+2023-11-10 18:10:34,992 DEBUG   SenderThread:172518 [sender.py:send():380] send: exit
+2023-11-10 18:10:34,992 INFO    SenderThread:172518 [sender.py:send_exit():585] handling exit code: 0
+2023-11-10 18:10:34,992 INFO    SenderThread:172518 [sender.py:send_exit():587] handling runtime: 28
+2023-11-10 18:10:34,992 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:34,992 INFO    SenderThread:172518 [sender.py:send_exit():593] send defer
+2023-11-10 18:10:34,993 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:34,993 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 0
+2023-11-10 18:10:34,993 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:34,993 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-11-10 18:10:34,993 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 1
+2023-11-10 18:10:34,993 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:34,993 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 1
+2023-11-10 18:10:34,994 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:34,994 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-11-10 18:10:34,994 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 2
+2023-11-10 18:10:34,994 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:34,994 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 2
+2023-11-10 18:10:34,994 INFO    HandlerThread:172518 [system_monitor.py:finish():203] Stopping system monitor
+2023-11-10 18:10:34,994 INFO    HandlerThread:172518 [interfaces.py:finish():202] Joined cpu monitor
+2023-11-10 18:10:34,995 INFO    HandlerThread:172518 [interfaces.py:finish():202] Joined disk monitor
+2023-11-10 18:10:34,996 DEBUG   SystemMonitor:172518 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-10 18:10:34,996 DEBUG   SystemMonitor:172518 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-10 18:10:34,996 DEBUG   SystemMonitor:172518 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-10 18:10:35,061 ERROR   gpu       :172518 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-11-10 18:10:35,061 INFO    HandlerThread:172518 [interfaces.py:finish():202] Joined gpu monitor
+2023-11-10 18:10:35,061 INFO    HandlerThread:172518 [interfaces.py:finish():202] Joined memory monitor
+2023-11-10 18:10:35,062 INFO    HandlerThread:172518 [interfaces.py:finish():202] Joined network monitor
+2023-11-10 18:10:35,062 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:35,062 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-11-10 18:10:35,062 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 3
+2023-11-10 18:10:35,062 DEBUG   SenderThread:172518 [sender.py:send():380] send: stats
+2023-11-10 18:10:35,063 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:35,063 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 3
+2023-11-10 18:10:35,065 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:35,066 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-11-10 18:10:35,066 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 4
+2023-11-10 18:10:35,066 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:35,066 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 4
+2023-11-10 18:10:35,600 INFO    wandb-upload_3:172518 [upload_job.py:push():131] Uploaded file /tmp/tmpg9fcqbghwandb/ez3hdnov-media/videos/videos_5_67ce629dc20f74cf1f0a.mp4
+2023-11-10 18:10:35,714 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:35,714 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:36,714 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:37,715 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/config.yaml
+2023-11-10 18:10:40,983 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-10 18:10:40,984 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:40,991 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:40,991 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-11-10 18:10:40,991 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 5
+2023-11-10 18:10:40,991 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: poll_exit
+2023-11-10 18:10:40,991 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:40,992 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 5
+2023-11-10 18:10:40,993 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-10 18:10:40,999 DEBUG   SenderThread:172518 [sender.py:send():380] send: history
+2023-11-10 18:10:40,999 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: summary_record
+2023-11-10 18:10:41,000 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:41,001 DEBUG   SenderThread:172518 [sender.py:send():380] send: summary
+2023-11-10 18:10:41,001 INFO    SenderThread:172518 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-10 18:10:41,001 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:41,001 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-11-10 18:10:41,001 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 6
+2023-11-10 18:10:41,001 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:41,002 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 6
+2023-11-10 18:10:41,002 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:41,002 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-11-10 18:10:41,002 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 7
+2023-11-10 18:10:41,002 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: status_report
+2023-11-10 18:10:41,003 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:41,003 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 7
+2023-11-10 18:10:41,003 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:41,004 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-11-10 18:10:41,716 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:42,704 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 8
+2023-11-10 18:10:42,705 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:42,705 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 8
+2023-11-10 18:10:42,705 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:42,706 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-11-10 18:10:42,706 INFO    SenderThread:172518 [job_builder.py:build():298] Attempting to build job artifact
+2023-11-10 18:10:42,717 INFO    Thread-12 :172518 [dir_watcher.py:_on_file_modified():288] file/dir modified: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:42,726 INFO    SenderThread:172518 [job_builder.py:_get_source_type():428] is repo sourced job
+2023-11-10 18:10:42,783 INFO    SenderThread:172518 [job_builder.py:build():404] adding wandb-job metadata file
+2023-11-10 18:10:42,797 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 9
+2023-11-10 18:10:42,797 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:42,797 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 9
+2023-11-10 18:10:42,821 DEBUG   SenderThread:172518 [sender.py:send():380] send: artifact
+2023-11-10 18:10:43,906 INFO    SenderThread:172518 [sender.py:send_artifact():1458] sent artifact job-https___github.com_AliSouliman1_Model-free-RL.git_PPO.py - {'id': 'QXJ0aWZhY3Q6NjM0MTQwOTA4', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjExNDU1ODUxNA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjM0MTQwOTA4', 'versionIndex': 0}}}
+2023-11-10 18:10:43,906 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:43,906 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-11-10 18:10:43,906 INFO    SenderThread:172518 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-11-10 18:10:44,719 INFO    SenderThread:172518 [dir_watcher.py:finish():388] scan: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files
+2023-11-10 18:10:44,720 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log output.log
+2023-11-10 18:10:44,720 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/diff.patch diff.patch
+2023-11-10 18:10:44,720 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/requirements.txt requirements.txt
+2023-11-10 18:10:44,723 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/config.yaml config.yaml
+2023-11-10 18:10:44,724 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json wandb-summary.json
+2023-11-10 18:10:44,724 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/events.out.tfevents.1699629006.Ali.172499.0 events.out.tfevents.1699629006.Ali.172499.0
+2023-11-10 18:10:44,726 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-metadata.json wandb-metadata.json
+2023-11-10 18:10:44,726 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_4_2bc85dc4169fd35bb178.mp4 media/videos/videos_4_2bc85dc4169fd35bb178.mp4
+2023-11-10 18:10:44,727 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4 media/videos/videos_0_0b0e2a3e0b0da04d8208.mp4
+2023-11-10 18:10:44,727 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4 media/videos/videos_1_0901fa4f7d6f2e1d6a14.mp4
+2023-11-10 18:10:44,727 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_5_67ce629dc20f74cf1f0a.mp4 media/videos/videos_5_67ce629dc20f74cf1f0a.mp4
+2023-11-10 18:10:44,727 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_2_018c22237404ba8f8667.mp4 media/videos/videos_2_018c22237404ba8f8667.mp4
+2023-11-10 18:10:44,727 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/media/videos/videos_3_be3ce92215deaa3fed01.mp4 media/videos/videos_3_be3ce92215deaa3fed01.mp4
+2023-11-10 18:10:44,731 INFO    SenderThread:172518 [dir_watcher.py:finish():402] scan save: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/code/PPO.py code/PPO.py
+2023-11-10 18:10:44,731 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 10
+2023-11-10 18:10:44,731 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:44,731 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 10
+2023-11-10 18:10:44,731 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:44,731 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-11-10 18:10:44,731 INFO    SenderThread:172518 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-10 18:10:45,139 INFO    wandb-upload_1:172518 [upload_job.py:push():131] Uploaded file /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/wandb-summary.json
+2023-11-10 18:10:45,160 INFO    wandb-upload_3:172518 [upload_job.py:push():131] Uploaded file /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/config.yaml
+2023-11-10 18:10:45,245 INFO    wandb-upload_2:172518 [upload_job.py:push():131] Uploaded file /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/output.log
+2023-11-10 18:10:45,274 INFO    wandb-upload_0:172518 [upload_job.py:push():131] Uploaded file /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/files/requirements.txt
+2023-11-10 18:10:45,475 INFO    Thread-11 (_thread_body):172518 [sender.py:transition_state():613] send defer: 11
+2023-11-10 18:10:45,475 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:45,475 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 11
+2023-11-10 18:10:45,476 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:45,476 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-11-10 18:10:45,476 INFO    SenderThread:172518 [file_pusher.py:join():181] waiting for file pusher
+2023-11-10 18:10:45,476 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 12
+2023-11-10 18:10:45,476 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:45,476 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 12
+2023-11-10 18:10:45,476 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:45,476 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-11-10 18:10:45,476 INFO    SenderThread:172518 [file_stream.py:finish():595] file stream finish called
+2023-11-10 18:10:45,676 INFO    SenderThread:172518 [file_stream.py:finish():599] file stream finish is done
+2023-11-10 18:10:45,677 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 13
+2023-11-10 18:10:45,677 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:45,677 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 13
+2023-11-10 18:10:45,677 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:45,677 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-11-10 18:10:45,677 INFO    SenderThread:172518 [sender.py:transition_state():613] send defer: 14
+2023-11-10 18:10:45,677 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: defer
+2023-11-10 18:10:45,677 INFO    HandlerThread:172518 [handler.py:handle_request_defer():172] handle defer: 14
+2023-11-10 18:10:45,678 DEBUG   SenderThread:172518 [sender.py:send():380] send: final
+2023-11-10 18:10:45,678 DEBUG   SenderThread:172518 [sender.py:send():380] send: footer
+2023-11-10 18:10:45,678 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: defer
+2023-11-10 18:10:45,678 INFO    SenderThread:172518 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-11-10 18:10:45,678 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-10 18:10:45,678 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: poll_exit
+2023-11-10 18:10:45,679 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: server_info
+2023-11-10 18:10:45,679 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: server_info
+2023-11-10 18:10:45,680 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: get_summary
+2023-11-10 18:10:45,681 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: sampled_history
+2023-11-10 18:10:45,681 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-10 18:10:45,681 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: job_info
+2023-11-10 18:10:45,836 DEBUG   SenderThread:172518 [sender.py:send_request():407] send_request: job_info
+2023-11-10 18:10:45,837 INFO    MainThread:172518 [wandb_run.py:_footer_history_summary_info():3760] rendering history
+2023-11-10 18:10:45,837 INFO    MainThread:172518 [wandb_run.py:_footer_history_summary_info():3792] rendering summary
+2023-11-10 18:10:45,838 INFO    MainThread:172518 [wandb_run.py:_footer_sync_info():3719] logging synced files
+2023-11-10 18:10:45,839 DEBUG   HandlerThread:172518 [handler.py:handle_request():146] handle_request: shutdown
+2023-11-10 18:10:45,839 INFO    HandlerThread:172518 [handler.py:finish():866] shutting down handler
+2023-11-10 18:10:46,682 INFO    WriterThread:172518 [datastore.py:close():294] close: /mnt/d62f8635-c05a-42e9-b700-852ee828d07f/RL/MyGithub/Model free RL/wandb/run-20231110_181006-21kwmtk8/run-21kwmtk8.wandb
+2023-11-10 18:10:46,837 INFO    SenderThread:172518 [sender.py:finish():1536] shutting down sender
+2023-11-10 18:10:46,837 INFO    SenderThread:172518 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-10 18:10:46,837 INFO    SenderThread:172518 [file_pusher.py:join():181] waiting for file pusher
