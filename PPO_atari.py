@@ -9,7 +9,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.distributions.categorical import Categorical
-import gym
+import gymnasium as gym
+import wandb
 
 from stable_baselines3.common.atari_wrappers import(
     NoopResetEnv,
@@ -19,9 +20,11 @@ from stable_baselines3.common.atari_wrappers import(
     ClipRewardEnv
 )
 
+
+
 def make_env(gym_id, seed, idx, capture_video, run_name):
     def thunk():
-        env = gym.make(gym_id)
+        env = gym.make(gym_id,render_mode='rgb_array')
         env = gym.wrappers.RecordEpisodeStatistics(env)
         if capture_video:
             if idx == 0:
@@ -41,8 +44,6 @@ def make_env(gym_id, seed, idx, capture_video, run_name):
         return env
 
     return thunk
-
-
 
 def layer_init(layer,std=np.sqrt(2),bias_const=0.0):
     torch.nn.init.orthogonal_(layer.weight,std)
@@ -81,6 +82,7 @@ class Agent(nn.Module):
 
 
 
+
 def parse_args():
     parser=argparse.ArgumentParser()
     parser.add_argument('--exp-name',type=str,default=os.path.basename(__file__).rstrip(",py"),
@@ -102,6 +104,12 @@ def parse_args():
     parser.add_argument('--anneal-lr',type=lambda x:bool(strtobool(x)),default=True,
         help='change lr so it gets to zero when doing the last update')
     
+    parser.add_argument("--track", type=lambda x: bool(strtobool(x)), default=False, nargs="?", const=True,
+        help="if toggled, this experiment will be tracked with Weights and Biases")
+    parser.add_argument("--wandb-project-name", type=str, default="ppo-implementation-details",
+        help="the wandb's project name")
+    parser.add_argument("--wandb-entity", type=str, default=None,
+        help="the entity (team) of wandb's project")
     
 
     parser.add_argument('--num-envs',type=int,default=8,
@@ -121,11 +129,11 @@ def parse_args():
         help='numbee of minibatches')
     parser.add_argument('--norm-adv',type=lambda x:bool(strtobool(x)),default=True,
         help='Normalize the Advantage')    
-    parser.add_argument('--clip-coef',type=float,default=0.2,
+    parser.add_argument('--clip-coef',type=float,default=0.1,
         help='clipping coef') 
     parser.add_argument('--clip-vloss',type=lambda x:bool(strtobool(x)),default=True,
         help='if TRue clip loss')    
-    parser.add_argument('--ent-coef',type=float,default=0.1,
+    parser.add_argument('--ent-coef',type=float,default=0.01,
         help='entropy coef')   
     parser.add_argument('--vs-coef',type=float,default=0.5,
         help='value loss coef')   
@@ -143,6 +151,18 @@ def parse_args():
 if __name__=="__main__":
     args=parse_args()
     run_name=f"{args.gym_id}__{args.exp_name}__{args.seed}__{int(time.time())}"
+
+
+
+    wandb.init(
+        project=args.wandb_project_name,
+        entity=args.wandb_entity,
+        sync_tensorboard=True,
+        config=vars(args),
+        name=run_name,
+        monitor_gym=True,
+        save_code=True,
+    )
     writer=SummaryWriter(f"runs/{run_name}")
     writer.add_text(
         "hyperparameters",
@@ -180,7 +200,8 @@ if __name__=="__main__":
     
     global_step=0
     start_time=time.time()
-    next_obs=torch.Tensor(envs.reset()).to(device)
+    print("space",envs.observation_space)
+    next_obs=torch.Tensor(envs.reset()[0]).to(device)
     next_done= torch.zeros(args.num_envs).to(device)
     num_updates=args.total_timesteps//args.batch_size
 
@@ -205,16 +226,10 @@ if __name__=="__main__":
             logprobs[step]=logprob
 
 
-            next_obs,reward,done,info=envs.step(action.cpu().numpy())
+            next_obs,reward,done,_,info=envs.step(action.cpu().numpy())
             rewards[step]=torch.tensor(reward).to(device).view(-1)
             next_obs,next_done=torch.Tensor(next_obs).to(device),torch.Tensor(done).to(device)
-            """
-            for item in info:
-                if "episode" in item.keys():
-                    print(f"global_step={global_step}, episodic_return={item['episode']['r']}")
-                    writer.add_scalar("charts/episodic_return", item["episode"]["r"], global_step)
-                    writer.add_scalar("charts/episodic_length", item["episode"]["l"], global_step)
-                    break"""
+            
         with torch.no_grad():
             next_value = agent.get_value(next_obs).reshape(1, -1)
             if args.gae:
@@ -300,12 +315,24 @@ if __name__=="__main__":
                 loss.backward()
                 nn.utils.clip_grad_norm_(agent.parameters(), args.max_grad_norm)
                 optimizer.step()
-            """if args.target_kl is not None:
+            if args.target_kl is not None:
                 if approx_kl>args.target_kl:
-                    break"""
+                    print("break becaues of kl div")
+                    break
         y_pred,y_true=b_values.cpu().numpy(),b_returns.cpu().numpy()
         var_y=np.var(y_true)
         explained_var=np.nan if var_y==0 else 1-np.var(y_true-y_pred)/var_y
 
+        writer.add_scalar("charts/learning_rate", optimizer.param_groups[0]["lr"], global_step)
+        writer.add_scalar("losses/value_loss", v_loss.item(), global_step)
+        writer.add_scalar("losses/policy_loss", pg_loss.item(), global_step)
+        writer.add_scalar("losses/entropy", entropy_loss.item(), global_step)
+        writer.add_scalar("losses/old_approx_kl", old_approx_kl.item(), global_step)
+        writer.add_scalar("losses/approx_kl", approx_kl.item(), global_step)
+        writer.add_scalar("losses/clipfrac", np.mean(clipfracs), global_step)
+        writer.add_scalar("losses/explained_variance", explained_var, global_step)
+        print("SPS:", int(global_step / (time.time() - start_time)))
+        writer.add_scalar("charts/SPS", int(global_step / (time.time() - start_time)), global_step)
 
     envs.close()
+    writer.close()
