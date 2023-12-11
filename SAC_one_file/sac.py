@@ -217,7 +217,7 @@ if __name__ == "__main__":
                 q1_value_next=q1_target(data.next_observations,next_action)
                 q2_value_next=q2_target(data.next_observations,next_action)
                 q_value_next=torch.min(q1_value_next,q2_value_next)
-                q_hat=data.rewards-args.gamma*(q_value_next-next_log_prob)
+                q_hat=data.rewards+args.gamma*(q_value_next-next_log_prob)
             q1_value=q1(data.observations,data.actions)
             q2_value=q2(data.observations,data.actions)
 
